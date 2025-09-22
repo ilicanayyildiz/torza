@@ -1,36 +1,134 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+﻿# Torza - Demo NFT Marketplace
 
-## Getting Started
+A complete demo NFT marketplace with mock payments, built with Next.js 15, Supabase, and Tailwind CSS.
 
-First, run the development server:
+## ⚠️ Demo Only
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+This is a demonstration project with **mock payments only**. Do not use for production.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Email OTP authentication with Supabase
+- Public marketplace with collections and NFTs
+- Mock hosted checkout with fake card forms
+- Webhook simulation for payment processing
+- Mock blockchain minting
+- Seller dashboard for CRUD operations
+- Developer documentation
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Tech Stack
 
-## Learn More
+- Next.js 15 (App Router)
+- TypeScript
+- Tailwind CSS
+- Supabase (Auth, DB, RLS)
+- shadcn/ui components
 
-To learn more about Next.js, take a look at the following resources:
+## Setup
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. **Create Next.js app** (already done):
+   `ash
+   npx create-next-app@latest torza --typescript --eslint --app --src-dir --tailwind --use-npm
+   `
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+2. **Install dependencies**:
+   `ash
+   npm i @supabase/ssr zod @radix-ui/react-slot
+   `
 
-## Deploy on Vercel
+3. **Environment variables**:
+   `ash
+   cp .env.example .env.local
+   `
+   Fill in your Supabase project details.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+4. **Database setup**:
+   - Open Supabase dashboard → SQL Editor
+   - Run the contents of schemas/supabase.sql
+   - This creates tables, RLS policies, and seed data
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+5. **Run development server**:
+   `ash
+   npm run dev
+   `
+
+6. **Sign in**:
+   - Go to /auth/sign-in
+   - Enter your email and use the magic link
+
+## Mock Payment Flow
+
+1. User clicks "Buy (Credit Card)" on NFT detail page
+2. Creates order with status=pending
+3. Redirects to mock hosted checkout (/mock/hosted)
+4. User fills fake card form and clicks "Pay Now"
+5. Triggers webhook simulation via /api/mock/complete
+6. Webhook updates order status to paid and mints NFT
+7. Redirects to success/cancel page
+
+## API Endpoints
+
+### POST /api/checkout
+Creates a checkout session for an NFT.
+
+`json
+{
+  "nftId": "uuid",
+  "quantity": 1
+}
+`
+
+### POST /api/webhook
+Handles payment webhooks (mock implementation).
+
+Headers: x-torza-signature: torza_demo_secret
+
+`json
+{
+  "type": "payment.succeeded",
+  "data": {
+    "provider_session_id": "mock_sess_...",
+    "provider_payment_id": "mock_pay_..."
+  }
+}
+`
+
+## Replacing Mock with Real Provider
+
+1. Replace src/lib/payments/mockProvider.ts with real payment provider
+2. Update webhook signature verification
+3. Replace mock minting in src/lib/blockchain/mockMint.ts
+4. Update hosted checkout UI in src/components/MockHostedCheckout.tsx
+
+## Testing Webhooks
+
+`ash
+curl -X POST http://localhost:3000/api/webhook \
+  -H "Content-Type: application/json" \
+  -H "x-torza-signature: torza_demo_secret" \
+  -d '{"type":"payment.succeeded","data":{"provider_session_id":"mock_sess_123","provider_payment_id":"mock_pay_456"}}'
+`
+
+## Security Notes
+
+- RLS policies restrict data access by user
+- Mock webhook secret is for demo only
+- No real payment processing
+- No real blockchain transactions
+
+## Project Structure
+
+`
+torza/
+├── src/
+│   ├── app/                 # Next.js App Router pages
+│   ├── components/          # React components
+│   ├── lib/                 # Utilities and services
+│   └── styles/              # Global styles
+├── schemas/                 # Database schema
+└── README.md
+`
+
+## License
+
+Demo project - not for production use.

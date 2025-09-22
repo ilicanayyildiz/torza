@@ -1,0 +1,7 @@
+<svg width="120" height="36" viewBox="0 0 120 36" xmlns="http://www.w3.org/2000/svg" aria-label="MASTERCARD">
+  <rect width="120" height="36" fill="none"/>
+  <circle cx="52" cy="18" r="10" fill="#ef4444"/>
+  <circle cx="68" cy="18" r="10" fill="#f59e0b" fill-opacity="0.9"/>
+  <text x="5" y="23" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="700" fill="#111827">MASTERCARD</text>
+</svg>
+
