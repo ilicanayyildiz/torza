@@ -30,7 +30,7 @@ export async function POST(req: NextRequest) {
     const linkRes = await admin.auth.admin.generateLink({
       type: 'magiclink',
       email,
-      options: { redirect_to: `${process.env.NEXT_PUBLIC_SITE_URL}/auth/callback` },
+      options: { redirectTo: `${process.env.NEXT_PUBLIC_SITE_URL}/auth/callback` },
     });
     if (linkRes.error) return Response.json({ error: linkRes.error.message }, { status: 400 });
 
