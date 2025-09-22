@@ -22,19 +22,10 @@ export default function SignInPage() {
     try {
       const { error } = await supabase.auth.signInWithOtp({
         email,
-        options: { emailRedirectTo: `${process.env.NEXT_PUBLIC_SITE_URL}/auth/sign-in` },
+        options: { emailRedirectTo: `${process.env.NEXT_PUBLIC_SITE_URL}/auth/callback` },
       });
       if (error) throw error;
       setSent(true);
-
-      setTimeout(async () => {
-        const { data } = await supabase.auth.getUser();
-        const user = data.user;
-        if (user) {
-          await supabase.from('profiles').upsert({ id: user.id, display_name: user.email ?? null }).select();
-          router.push('/');
-        }
-      }, 1000);
     } catch (err: any) {
       setError(err?.message ?? 'Failed to send magic link');
     }
