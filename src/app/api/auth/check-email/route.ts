@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { createAdminClient } from '@/lib/supabase/admin';
+import { createAdmin } from '@/lib/supabase/admin';
 
 export async function POST(req: Request) {
   try {
@@ -8,7 +8,7 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: 'Email is required' }, { status: 400 });
     }
 
-    const admin = createAdminClient();
+    const admin = createAdmin();
     const { data, error } = await admin.auth.admin.getUserByEmail(email);
     if (error && error.message && !error.message.includes('not found')) {
       return NextResponse.json({ error: error.message }, { status: 400 });
