@@ -2,8 +2,13 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
+import { useEffect, useState } from 'react';
 
 export default function FiatOnrampPage() {
+  const [who, setWho] = useState<string>('');
+  const [launched, setLaunched] = useState<string>('');
+  // Do not restore from storage on reload anymore
+  const persist = (_nextWho: string, _nextLaunched: string) => {};
   return (
     <div style={{ 
       minHeight: '100vh', 
@@ -73,71 +78,8 @@ export default function FiatOnrampPage() {
 
           {/* Payment methods row removed as requested */}
 
-          {/* Crypto Currencies */}
-          <div style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            gap: '40px',
-            flexWrap: 'wrap'
-          }}>
-            <div style={{
-              fontSize: '24px',
-              fontWeight: '600',
-              color: '#1a202c'
-            }}>
-              XTZ
-            </div>
-            <div style={{
-              fontSize: '24px',
-              fontWeight: '600',
-              color: '#1a202c'
-            }}>
-              ETH
-            </div>
-            <div style={{
-              fontSize: '24px',
-              fontWeight: '600',
-              color: '#1a202c'
-            }}>
-              MATIC
-            </div>
-            <div style={{
-              fontSize: '24px',
-              fontWeight: '600',
-              color: '#1a202c'
-            }}>
-              BTC
-            </div>
-            <div style={{
-              fontSize: '24px',
-              fontWeight: '600',
-              color: '#1a202c'
-            }}>
-              STX
-            </div>
-            <div style={{
-              fontSize: '24px',
-              fontWeight: '600',
-              color: '#1a202c'
-            }}>
-              CCD
-            </div>
-            <div style={{
-              fontSize: '24px',
-              fontWeight: '600',
-              color: '#1a202c'
-            }}>
-              ARB
-            </div>
-            <div style={{
-              fontSize: '24px',
-              fontWeight: '600',
-              color: '#1a202c'
-            }}>
-              BNB
-            </div>
-          </div>
+          
+        
         </div>
       </section>
 
@@ -381,6 +323,8 @@ export default function FiatOnrampPage() {
           </div>
 
           <div style={{ background: 'white', borderRadius: 12, padding: 28, border: '1px solid #e5e7eb', maxWidth: 600, margin: '0 auto' }}>
+            {/* selection state */}
+            {null}
             <h3 style={{
               fontSize: '20px',
               fontWeight: '600',
@@ -395,12 +339,12 @@ export default function FiatOnrampPage() {
               justifyContent: 'center',
               marginBottom: '24px'
             }}>
-              <button style={{
+              <button onClick={() => { setWho('web2'); persist('web2', launched); }} style={{
                 padding: '12px 24px',
                 borderRadius: '8px',
                 border: '1px solid #d1d5db',
-                background: 'white',
-                color: '#4a5568',
+                background: who === 'web2' ? '#e0f2fe' : 'white',
+                color: who === 'web2' ? '#0c4a6e' : '#4a5568',
                 fontSize: '14px',
                 fontWeight: '500',
                 cursor: 'pointer',
@@ -409,12 +353,12 @@ export default function FiatOnrampPage() {
               }}>
                 a web2 business looking for a solution to sell NFTs
               </button>
-              <button style={{
+              <button onClick={() => { setWho('web3'); persist('web3', launched); }} style={{
                 padding: '12px 24px',
                 borderRadius: '8px',
                 border: '1px solid #d1d5db',
-                background: 'white',
-                color: '#4a5568',
+                background: who === 'web3' ? '#e0f2fe' : 'white',
+                color: who === 'web3' ? '#0c4a6e' : '#4a5568',
                 fontSize: '14px',
                 fontWeight: '500',
                 cursor: 'pointer',
@@ -438,12 +382,12 @@ export default function FiatOnrampPage() {
               justifyContent: 'center',
               marginBottom: '32px'
             }}>
-              <button style={{
+              <button onClick={() => { setLaunched('yes'); persist(who, 'yes'); }} style={{
                 padding: '12px 24px',
                 borderRadius: '8px',
                 border: '1px solid #d1d5db',
-                background: 'white',
-                color: '#4a5568',
+                background: launched === 'yes' ? '#e0f2fe' : 'white',
+                color: launched === 'yes' ? '#0c4a6e' : '#4a5568',
                 fontSize: '14px',
                 fontWeight: '500',
                 cursor: 'pointer',
@@ -452,12 +396,12 @@ export default function FiatOnrampPage() {
               }}>
                 Yes
               </button>
-              <button style={{
+              <button onClick={() => { setLaunched('no'); persist(who, 'no'); }} style={{
                 padding: '12px 24px',
                 borderRadius: '8px',
                 border: '1px solid #d1d5db',
-                background: 'white',
-                color: '#4a5568',
+                background: launched === 'no' ? '#e0f2fe' : 'white',
+                color: launched === 'no' ? '#0c4a6e' : '#4a5568',
                 fontSize: '14px',
                 fontWeight: '500',
                 cursor: 'pointer',
