@@ -185,17 +185,7 @@ export default function CheckoutPage() {
             </Link>
           </div>
           
-          <p 
-            className={isVisible ? 'animate-fadeInUp' : ''}
-            style={{
-              fontSize: '14px',
-              color: 'rgba(255, 255, 255, 0.7)',
-              marginTop: '16px',
-              opacity: isVisible ? 1 : 0,
-              animationDelay: '0.6s'
-            }}>
-            Powered by Worldpay
-          </p>
+          {/* Provider brand mention removed as requested */}
         </div>
       </section>
 
@@ -382,32 +372,7 @@ export default function CheckoutPage() {
             </div>
           </div>
 
-          {/* Payment Methods (SVG wordmarks) */}
-          <div 
-            className={isVisible ? 'animate-fadeInUp' : ''}
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))',
-              gap: '16px',
-              alignItems: 'center',
-              marginBottom: '24px',
-              opacity: isVisible ? 1 : 0,
-              animationDelay: '0.5s'
-            }}>
-            {[
-              { src: '/visa.svg', alt: 'VISA' },
-              { src: '/mastercard.svg', alt: 'MASTERCARD' },
-              { src: '/amex.svg', alt: 'AMEX' },
-              { src: '/jcb.svg', alt: 'JCB' },
-              { src: '/discover.svg', alt: 'DISCOVER' },
-              { src: '/applepay.svg', alt: 'APPLE PAY' },
-              { src: '/googlepay.svg', alt: 'GOOGLE PAY' },
-            ].map((b) => (
-              <div key={b.alt} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '10px 12px', borderRadius: 10, background: 'white', border: '1px solid #e5e7eb', boxShadow: '0 4px 10px rgba(0,0,0,0.03)' }}>
-                <Image src={b.src} alt={b.alt} width={120} height={22} aria-label={b.alt} />
-              </div>
-            ))}
-          </div>
+          {/* Payment methods grid removed as requested */}
         </div>
       </section>
 

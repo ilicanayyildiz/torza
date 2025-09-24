@@ -616,34 +616,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Partners / Logos Strip */}
-      <section style={{
-        padding: '24px 0',
-        background: 'white',
-        borderTop: '1px solid #e5e7eb',
-        borderBottom: '1px solid #e5e7eb'
-      }}>
-        <div style={{
-          maxWidth: '1200px',
-          margin: '0 auto',
-          padding: '0 24px',
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(120px, 1fr))',
-          gap: '22px',
-          alignItems: 'center'
-        }}>
-          {['Visa', 'Mastercard', 'Nuvei', 'Worldpay', 'Elliptic', 'Chainalysis'].map((logo) => (
-            <div key={logo} style={{
-              color: '#4b5563',
-              fontWeight: 600,
-              letterSpacing: '0.6px',
-              textAlign: 'center',
-              opacity: 0.9
-            }}>{logo}</div>
-          ))}
-        </div>
-      </section>
-
       {/* Product Showcase Section */}
       <section style={{
         padding: '120px 0',
@@ -651,26 +623,7 @@ export default function HomePage() {
         position: 'relative'
       }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
-          <div style={{ textAlign: 'center', marginBottom: '80px' }}>
-            <h2 style={{
-              fontSize: 'clamp(2rem, 5vw, 3rem)',
-              fontWeight: '700',
-              color: '#1a202c',
-              marginBottom: '24px',
-              letterSpacing: '-0.025em'
-            }}>
-              Complete Payment Infrastructure
-            </h2>
-            <p style={{
-              fontSize: 'clamp(1rem, 2vw, 1.25rem)',
-              color: '#6b7280',
-              maxWidth: '700px',
-              margin: '0 auto',
-              lineHeight: '1.6'
-            }}>
-              From NFT marketplaces to DeFi protocols, we provide the tools you need to accept payments in the Web3 economy.
-            </p>
-          </div>
+          {/* Demo heading/paragraph removed as requested */}
 
           <div style={{
             display: 'grid',
@@ -1298,20 +1251,10 @@ export default function HomePage() {
                 marginBottom: '24px'
               }}>
                 <div style={{
-                  width: '50px',
-                  height: '50px',
-                  background: 'linear-gradient(135deg, #667eea, #764ba2)',
-                  borderRadius: '50%',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontSize: '20px',
-                  fontWeight: '700',
-                  color: 'white',
-                  marginRight: '16px'
-                }}>
-                  A
-                </div>
+                  width: '50px', height: '50px', borderRadius: '50%', marginRight: '16px',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '20px', fontWeight: 700, color: 'white',
+                  background: 'linear-gradient(135deg, #667eea, #764ba2)'
+                }}>S</div>
                 <div>
                   <div style={{
                     fontSize: '18px',
@@ -1368,20 +1311,10 @@ export default function HomePage() {
                 marginBottom: '24px'
               }}>
                 <div style={{
-                  width: '50px',
-                  height: '50px',
-                  background: 'linear-gradient(135deg, #f093fb, #f5576c)',
-                  borderRadius: '50%',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontSize: '20px',
-                  fontWeight: '700',
-                  color: 'white',
-                  marginRight: '16px'
-                }}>
-                  S
-                </div>
+                  width: '50px', height: '50px', borderRadius: '50%', marginRight: '16px',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '20px', fontWeight: 700, color: 'white',
+                  background: 'linear-gradient(135deg, #f093fb, #f5576c)'
+                }}>M</div>
                 <div>
                   <div style={{
                     fontSize: '18px',
@@ -1438,20 +1371,10 @@ export default function HomePage() {
                 marginBottom: '24px'
               }}>
                 <div style={{
-                  width: '50px',
-                  height: '50px',
-                  background: 'linear-gradient(135deg, #4facfe, #00f2fe)',
-                  borderRadius: '50%',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontSize: '20px',
-                  fontWeight: '700',
-                  color: 'white',
-                  marginRight: '16px'
-                }}>
-                  M
-                </div>
+                  width: '50px', height: '50px', borderRadius: '50%', marginRight: '16px',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '20px', fontWeight: 700, color: 'white',
+                  background: 'linear-gradient(135deg, #4facfe, #00f2fe)'
+                }}>D</div>
                 <div>
                   <div style={{
                     fontSize: '18px',
@@ -1676,182 +1599,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Payment Methods Section */}
-      <section style={{
-        padding: '120px 0',
-        background: '#f9fafb'
-      }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
-          <div style={{ textAlign: 'center', marginBottom: '80px' }}>
-            <h2 style={{
-              fontSize: 'clamp(2rem, 5vw, 3rem)',
-              fontWeight: '700',
-              color: '#1a202c',
-              marginBottom: '24px',
-              letterSpacing: '-0.025em'
-            }}>
-              Global Payment Methods
-            </h2>
-            <p style={{
-              fontSize: 'clamp(1rem, 2vw, 1.25rem)',
-              color: '#6b7280',
-              maxWidth: '600px',
-              margin: '0 auto',
-              lineHeight: '1.6'
-            }}>
-              Accept payments from customers worldwide with our comprehensive payment method support.
-            </p>
-          </div>
-
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-            gap: '30px',
-            marginBottom: '60px'
-          }}>
-            <div style={{
-              background: 'white',
-              borderRadius: '12px',
-              padding: '30px',
-              textAlign: 'center',
-              boxShadow: '0 2px 10px rgba(0, 0, 0, 0.05)',
-              border: '1px solid #e5e7eb'
-            }}>
-              <div style={{ fontSize: '32px', marginBottom: '12px' }} className="animate-wiggle">💳</div>
-              <div style={{ fontSize: '16px', fontWeight: '600', color: '#1a202c' }}>Credit Cards</div>
-            </div>
-            <div style={{
-              background: 'white',
-              borderRadius: '12px',
-              padding: '30px',
-              textAlign: 'center',
-              boxShadow: '0 2px 10px rgba(0, 0, 0, 0.05)',
-              border: '1px solid #e5e7eb'
-            }}>
-              <div style={{ fontSize: '32px', marginBottom: '12px' }}>🏦</div>
-              <div style={{ fontSize: '16px', fontWeight: '600', color: '#1a202c' }}>Bank Transfers</div>
-            </div>
-            <div style={{
-              background: 'white',
-              borderRadius: '12px',
-              padding: '30px',
-              textAlign: 'center',
-              boxShadow: '0 2px 10px rgba(0, 0, 0, 0.05)',
-              border: '1px solid #e5e7eb'
-            }}>
-              <div style={{ fontSize: '32px', marginBottom: '12px' }}>📱</div>
-              <div style={{ fontSize: '16px', fontWeight: '600', color: '#1a202c' }}>Digital Wallets</div>
-            </div>
-            <div style={{
-              background: 'white',
-              borderRadius: '12px',
-              padding: '30px',
-              textAlign: 'center',
-              boxShadow: '0 2px 10px rgba(0, 0, 0, 0.05)',
-              border: '1px solid #e5e7eb'
-            }}>
-              <div style={{ fontSize: '32px', marginBottom: '12px' }}>₿</div>
-              <div style={{ fontSize: '16px', fontWeight: '600', color: '#1a202c' }}>Cryptocurrency</div>
-            </div>
-            <div style={{
-              background: 'white',
-              borderRadius: '12px',
-              padding: '30px',
-              textAlign: 'center',
-              boxShadow: '0 2px 10px rgba(0, 0, 0, 0.05)',
-              border: '1px solid #e5e7eb'
-            }}>
-              <div style={{ fontSize: '32px', marginBottom: '12px' }} className="animate-float-gentle">🌍</div>
-              <div style={{ fontSize: '16px', fontWeight: '600', color: '#1a202c' }}>Local Methods</div>
-            </div>
-            <div style={{
-              background: 'white',
-              borderRadius: '12px',
-              padding: '30px',
-              textAlign: 'center',
-              boxShadow: '0 2px 10px rgba(0, 0, 0, 0.05)',
-              border: '1px solid #e5e7eb'
-            }}>
-              <div style={{ fontSize: '32px', marginBottom: '12px' }} className="animate-bounce">💎</div>
-              <div style={{ fontSize: '16px', fontWeight: '600', color: '#1a202c' }}>NFT Payments</div>
-            </div>
-          </div>
-
-          <div style={{
-            background: 'white',
-            borderRadius: '16px',
-            padding: '40px',
-            textAlign: 'center',
-            boxShadow: '0 4px 20px rgba(0, 0, 0, 0.08)',
-            border: '1px solid #e5e7eb'
-          }}>
-            <h3 style={{
-              fontSize: '24px',
-              fontWeight: '700',
-              color: '#1a202c',
-              marginBottom: '16px'
-            }}>
-              Supported in 180+ Countries
-            </h3>
-            <p style={{
-              fontSize: '16px',
-              color: '#6b7280',
-              lineHeight: '1.6',
-              marginBottom: '24px'
-            }}>
-              Accept payments from customers worldwide with local payment methods and currencies.
-            </p>
-            <div style={{
-              display: 'flex',
-              justifyContent: 'center',
-              gap: '20px',
-              flexWrap: 'wrap'
-            }}>
-              <div style={{
-                background: '#f3f4f6',
-                padding: '8px 16px',
-                borderRadius: '20px',
-                fontSize: '14px',
-                fontWeight: '500',
-                color: '#374151'
-              }}>
-                USD, EUR, GBP
-              </div>
-              <div style={{
-                background: '#f3f4f6',
-                padding: '8px 16px',
-                borderRadius: '20px',
-                fontSize: '14px',
-                fontWeight: '500',
-                color: '#374151'
-              }}>
-                JPY, CAD, AUD
-              </div>
-              <div style={{
-                background: '#f3f4f6',
-                padding: '8px 16px',
-                borderRadius: '20px',
-                fontSize: '14px',
-                fontWeight: '500',
-                color: '#374151'
-              }}>
-                +50 more currencies
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* How It Works */}
       <section style={{
         padding: '120px 0',
         background: 'white',
       }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
-          <div style={{ textAlign: 'center', marginBottom: '48px' }}>
-            <h2 style={{ fontSize: 'clamp(2rem, 5vw, 3rem)', fontWeight: 700, color: '#1a202c' }}>How it works</h2>
-            <p style={{ color: '#6b7280' }}>Go live in days, not weeks.</p>
-          </div>
+          {/* Demo subtitle/desc removed */}
           <div style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',

@@ -11,12 +11,22 @@ export default function Navbar() {
   const [user, setUser] = useState<any>(null);
 
   useEffect(() => {
-    const getUser = async () => {
-      const { data } = await supabase.auth.getUser();
-      setUser(data.user);
+    let isMounted = true;
+    const loadSession = async () => {
+      const { data: { session } } = await supabase.auth.getSession();
+      if (isMounted) {
+        setUser(session?.user ?? null);
+      }
     };
-    getUser();
-  }, [supabase.auth]);
+    loadSession();
+    const { data: listener } = supabase.auth.onAuthStateChange((_event, session) => {
+      if (isMounted) setUser(session?.user ?? null);
+    });
+    return () => {
+      isMounted = false;
+      listener.subscription.unsubscribe();
+    };
+  }, [supabase]);
 
   const handleSignOut = async () => {
     await supabase.auth.signOut();
@@ -128,32 +138,6 @@ export default function Navbar() {
                 Fiat Onramp
               </Link>
               <Link 
-                href="/for-partners" 
-                style={{
-                  fontSize: '16px',
-                  fontWeight: '500',
-                  textDecoration: 'none',
-                  color: 'rgba(255, 255, 255, 0.9)',
-                  transition: 'all 0.3s ease',
-                  fontFamily: 'system-ui, -apple-system, sans-serif',
-                  padding: '8px 16px',
-                  borderRadius: '8px',
-                  position: 'relative'
-                }}
-                onMouseOver={(e) => {
-                  e.currentTarget.style.color = '#ffffff';
-                  e.currentTarget.style.background = 'rgba(255, 255, 255, 0.1)';
-                  e.currentTarget.style.transform = 'translateY(-2px)';
-                }}
-                onMouseOut={(e) => {
-                  e.currentTarget.style.color = 'rgba(255, 255, 255, 0.9)';
-                  e.currentTarget.style.background = 'transparent';
-                  e.currentTarget.style.transform = 'translateY(0)';
-                }}
-              >
-                For Partners
-              </Link>
-              <Link 
                 href="/pricing" 
                 style={{
                   fontSize: '16px',
@@ -179,6 +163,34 @@ export default function Navbar() {
               >
                 Pricing
               </Link>
+              {user && (
+                <Link 
+                  href="/buy-sell" 
+                  style={{
+                    fontSize: '16px',
+                    fontWeight: '500',
+                    textDecoration: 'none',
+                    color: 'rgba(255, 255, 255, 0.9)',
+                    transition: 'all 0.3s ease',
+                    fontFamily: 'system-ui, -apple-system, sans-serif',
+                    padding: '8px 16px',
+                    borderRadius: '8px',
+                    position: 'relative'
+                  }}
+                  onMouseOver={(e) => {
+                    e.currentTarget.style.color = '#ffffff';
+                    e.currentTarget.style.background = 'rgba(255, 255, 255, 0.1)';
+                    e.currentTarget.style.transform = 'translateY(-2px)';
+                  }}
+                  onMouseOut={(e) => {
+                    e.currentTarget.style.color = 'rgba(255, 255, 255, 0.9)';
+                    e.currentTarget.style.background = 'transparent';
+                    e.currentTarget.style.transform = 'translateY(0)';
+                  }}
+                >
+                  Buy / Sell
+                </Link>
+              )}
             </div>
           </div>
 
@@ -191,14 +203,33 @@ export default function Navbar() {
             }}>
               {user ? (
                 <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-                  <span style={{ 
-                    fontSize: '14px', 
-                    color: '#4a5568',
-                    fontWeight: '500',
-                    fontFamily: 'system-ui, -apple-system, sans-serif'
-                  }}>
-                    {user.email}
-                  </span>
+                  {/* user email hidden as requested */}
+                  <Link href="/dashboard" style={{ textDecoration: 'none' }}>
+                    <button 
+                      style={{
+                        padding: '12px 24px',
+                        borderRadius: '8px',
+                        border: 'none',
+                        background: 'linear-gradient(135deg, #1a202c 0%, #2d3748 100%)',
+                        color: 'white',
+                        fontSize: '16px',
+                        fontWeight: '500',
+                        cursor: 'pointer',
+                        transition: 'all 0.2s ease',
+                        fontFamily: 'system-ui, -apple-system, sans-serif'
+                      }}
+                      onMouseOver={(e) => {
+                        e.currentTarget.style.background = 'linear-gradient(135deg, #2d3748 0%, #4a5568 100%)';
+                        e.currentTarget.style.transform = 'translateY(-2px)';
+                      }}
+                      onMouseOut={(e) => {
+                        e.currentTarget.style.background = 'linear-gradient(135deg, #1a202c 0%, #2d3748 100%)';
+                        e.currentTarget.style.transform = 'translateY(0)';
+                      }}
+                    >
+                      Dashboard
+                    </button>
+                  </Link>
                   <button 
                     onClick={handleSignOut}
                     style={{
@@ -244,7 +275,7 @@ export default function Navbar() {
                       Try Torza
                     </button>
                   </Link>
-                  <Link href="/partner-login" style={{ textDecoration: 'none' }}>
+                  <Link href="/auth/sign-in" style={{ textDecoration: 'none' }}>
                     <button style={{
                       padding: '12px 24px',
                       borderRadius: '8px',

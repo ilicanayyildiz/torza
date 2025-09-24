@@ -71,14 +71,7 @@ export default function FiatOnrampPage() {
             ))}
           </div>
 
-          {/* Payment methods (SVG) */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: 16, alignItems: 'center', marginBottom: 12 }}>
-            {['/visa.svg','/mastercard.svg','/amex.svg','/jcb.svg','/discover.svg','/applepay.svg','/googlepay.svg'].map(src => (
-              <div key={src} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '10px 12px', borderRadius: 10, background: 'white', border: '1px solid #e5e7eb', boxShadow: '0 4px 10px rgba(0,0,0,0.03)' }}>
-                <Image src={src} alt={src.replace('/','').replace('.svg','')} width={120} height={22} aria-label={src} />
-              </div>
-            ))}
-          </div>
+          {/* Payment methods row removed as requested */}
 
           {/* Crypto Currencies */}
           <div style={{
@@ -148,132 +141,7 @@ export default function FiatOnrampPage() {
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section style={{ padding: '64px 0', background: 'white' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
-          <h2 style={{ fontSize: 28, fontWeight: 800, color: '#0b1020', textAlign: 'center', marginBottom: 28 }}>What our clients say</h2>
-
-          <div style={{ 
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))',
-            gap: '40px'
-          }}>
-            <div style={{ background: '#f8fafc', borderRadius: 12, padding: 24, border: '1px solid #e5e7eb' }}>
-              <div style={{
-                fontSize: '48px',
-                color: '#6b7280',
-                marginBottom: '16px'
-              }}>
-                "
-              </div>
-              <p style={{
-                fontSize: '16px',
-                color: '#4a5568',
-                lineHeight: '1.6',
-                marginBottom: '16px'
-              }}>
-                We believe this partnership with Torza is a mutually rewarding collaboration that opens up new horizons for our clients interested in cryptocurrencies.
-              </p>
-              <div style={{
-                fontSize: '14px',
-                fontWeight: '600',
-                color: '#1a202c',
-                marginBottom: '4px'
-              }}>
-                Changelly
-              </div>
-              <div style={{
-                fontSize: '12px',
-                color: '#6b7280'
-              }}>
-                Jake Cormack
-              </div>
-              <div style={{
-                fontSize: '12px',
-                color: '#6b7280'
-              }}>
-                CEO at Changelly
-              </div>
-            </div>
-
-            <div style={{ background: '#f8fafc', borderRadius: 12, padding: 24, border: '1px solid #e5e7eb' }}>
-              <div style={{
-                fontSize: '48px',
-                color: '#6b7280',
-                marginBottom: '16px'
-              }}>
-                "
-              </div>
-              <p style={{
-                fontSize: '16px',
-                color: '#4a5568',
-                lineHeight: '1.6',
-                marginBottom: '16px'
-              }}>
-                Torza has been our preferred onramp platform for the past few years and has been crucial in helping us grow our userbase.
-              </p>
-              <div style={{
-                fontSize: '14px',
-                fontWeight: '600',
-                color: '#1a202c',
-                marginBottom: '4px'
-              }}>
-                Latoken
-              </div>
-              <div style={{
-                fontSize: '12px',
-                color: '#6b7280'
-              }}>
-                Dmitry Khrustalev
-              </div>
-              <div style={{
-                fontSize: '12px',
-                color: '#6b7280'
-              }}>
-                CTO of LATOKEN
-              </div>
-            </div>
-
-            <div style={{ background: '#f8fafc', borderRadius: 12, padding: 24, border: '1px solid #e5e7eb' }}>
-              <div style={{
-                fontSize: '48px',
-                color: '#6b7280',
-                marginBottom: '16px'
-              }}>
-                "
-              </div>
-              <p style={{
-                fontSize: '16px',
-                color: '#4a5568',
-                lineHeight: '1.6',
-                marginBottom: '16px'
-              }}>
-                We're thrilled to work alongside Torza, a company that shares our commitment to user experience and accessible technology.
-              </p>
-              <div style={{
-                fontSize: '14px',
-                fontWeight: '600',
-                color: '#1a202c',
-                marginBottom: '4px'
-              }}>
-                ARC
-              </div>
-              <div style={{
-                fontSize: '12px',
-                color: '#6b7280'
-              }}>
-                George Fox
-              </div>
-              <div style={{
-                fontSize: '12px',
-                color: '#6b7280'
-              }}>
-                COO at ARC Solutions Ltd
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Testimonials removed as requested */}
 
       {/* Non-custodian Section */}
       <section style={{ 
