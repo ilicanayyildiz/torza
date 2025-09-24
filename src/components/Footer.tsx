@@ -200,26 +200,7 @@ export default function Footer() {
                   Integration Docs
                 </Link>
               </li>
-              <li style={{ marginBottom: '12px' }}>
-                <Link href="/roadmap" style={{
-                  color: '#4a5568',
-                  textDecoration: 'none',
-                  fontSize: '14px',
-                  transition: 'color 0.2s ease'
-                }}>
-                  Roadmap
-                </Link>
-              </li>
-              <li style={{ marginBottom: '12px' }}>
-                <Link href="/feature-requests" style={{
-                  color: '#4a5568',
-                  textDecoration: 'none',
-                  fontSize: '14px',
-                  transition: 'color 0.2s ease'
-                }}>
-                  Feature Requests
-                </Link>
-              </li>
+              
             </ul>
           </div>
 
@@ -244,26 +225,7 @@ export default function Footer() {
                   About Us
                 </Link>
               </li>
-              <li style={{ marginBottom: '12px' }}>
-                <Link href="/careers" style={{
-                  color: '#4a5568',
-                  textDecoration: 'none',
-                  fontSize: '14px',
-                  transition: 'color 0.2s ease'
-                }}>
-                  Careers
-                </Link>
-              </li>
-              <li style={{ marginBottom: '12px' }}>
-                <Link href="/blog" style={{
-                  color: '#4a5568',
-                  textDecoration: 'none',
-                  fontSize: '14px',
-                  transition: 'color 0.2s ease'
-                }}>
-                  Blog
-                </Link>
-              </li>
+              
             </ul>
           </div>
         </div>
